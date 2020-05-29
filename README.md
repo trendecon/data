@@ -1,3 +1,13 @@
 # data-raw
 
-Storage for trendecon raw data. Formerly `christophsax/gtrendecon/data`
+
+### Daily data update
+
+
+In the repo dir, run:
+
+```r
+trendecon::proc_all(".")
+```
+
+
