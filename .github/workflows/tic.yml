@@ -103,6 +103,7 @@ jobs:
           path: check
       - name: "[Stage] Before Deploy"
         run: |
+          sudo apt install libcurl4-openssl-dev
           Rscript -e "tic::before_deploy()"
 
       - name: "[Stage] Deploy"
