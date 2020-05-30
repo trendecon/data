@@ -11,7 +11,8 @@ on:
 name: tic
 
 jobs:
-  R-CMD-check:
+  all:
+    if: "! contains(toJSON(github.event.commits.*.message), '[ci skip]')"
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
