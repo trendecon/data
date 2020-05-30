@@ -5,5 +5,5 @@ get_stage("before_deploy") %>%
 get_stage("deploy") %>%
   add_step(step_install_github("trendecon/trendecon")) %>%
   add_step(step_install_cran("prophet")) %>%
-  add_code_step(withr::with_package("trendecon", proc_trendecon_ch())) %>% I
-  #add_step(step_do_push_deploy())
+  add_code_step(withr::with_package("trendecon", proc_trendecon_ch())) %>%
+  add_step(step_do_push_deploy())
