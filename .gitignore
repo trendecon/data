@@ -8,3 +8,8 @@
 # Local History for Visual Studio Code
 .history/
 docs/
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+README.html
