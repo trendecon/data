@@ -1,20 +1,23 @@
-# data-raw
 
-Probably best to open up a copy to this repo. We then can set up automatization for the new repo. If everything works, we rename it to `data`. In the meantime, we manually update our current `data` repo.
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-### Daily data update
+# trendEcon data repository
 
-In this repo dir, run:
+We construct economic indicators for Switzerland, based on Google Trends
+data.
 
-```r
-library(trendecon)
-proc_trendecon_ch()
+The data is displayed and described at: <https://www.trendecon.org>
+
+The data is stored as CSV in the
+[`daily`](https://github.com/trendecon/data/tree/master/daily) folder.
+
+### Example
+
+The following code download and displays the main indicator in R:
+
+``` r
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv")
+tsbox::ts_plot(data)
 ```
 
-Alternatively, this will only update one indicator, and take less time:
-
-```r
-proc_trendecon_ch()
-```
-
-`proc_trendecon_ch` does the same as deprecated `proc_all`, but is called from this repo's dir, instead of the dir above. It only operates on subdirs of this repo and does not affect other repos.
+![](README_files/figure-gfm/example-1.png)<!-- -->
