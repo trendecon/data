@@ -88,6 +88,11 @@ jobs:
 
       # [Custom block] Install v8 for prophet
       - name: "[Stage] Install V8"
+        if: matrix.config.os == 'ubuntu-latest'
+        run: sudo apt install libv8-dev
+
+      # [Custom block] Install v8 for prophet
+      - name: "[Stage] Install V8"
         if: matrix.config.os == 'macOS-latest'
         run: brew install v8 tbb
 
