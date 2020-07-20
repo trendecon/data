@@ -89,7 +89,7 @@ jobs:
       # [Custom block] Install v8 for prophet
       - name: "[Stage] Install V8"
         if: matrix.config.os == 'macOS-latest'
-        run: brew install v8
+        run: brew install v8 tbb
 
       # macOS devel needs its own stage because we need to work with an option to suppress the usage of binaries
       - name: "[Stage] Prepare & Install (macOS-devel)"
