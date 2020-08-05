@@ -1,5 +1,6 @@
 ## tic GitHub Actions template: custom-deploy
 ## revision date: 2020-07-29
+# [Custom header]
 on:
   # for now, CRON jobs only run on the default branch of the repo (i.e. usually on master)
   schedule:
@@ -18,9 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          # Custom configs
+          ### Custom configs (specify your own runners here)
           # [Custom matrix env var]
-          - { os: ubuntu-latest, r: "release", pkgdown: "false", latex: "false" }
+          - { os: ubuntu-latest, r: "release" }
 
     env:
       # otherwise remotes::fun() errors cause the build to fail. Example: Unavailability of binaries
@@ -84,14 +85,6 @@ jobs:
       - name: "[Stage] Install"
         if: matrix.config.os != 'macOS-latest' || matrix.config.r != 'devel'
         run: Rscript -e "remotes::install_github('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
-
-      - name: "[Custom block] Install V8"
-        if: matrix.config.os == 'ubuntu-latest'
-        run: sudo apt install libv8-dev
-
-      - name: "[Custom block] Install V8"
-        if: matrix.config.os == 'macOS-latest'
-        run: brew install v8 tbb
 
       # macOS devel needs its own stage because we need to work with an option to suppress the usage of binaries
       - name: "[Stage] Prepare & Install (macOS-devel)"
