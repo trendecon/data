@@ -1,7 +1,6 @@
-## tic GitHub Actions template: linux-deploy
-## revision date: 2020-06-14
+## tic GitHub Actions template: custom-deploy
+## revision date: 2020-07-29
 on:
-  # push:
   # for now, CRON jobs only run on the default branch of the repo (i.e. usually on master)
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -19,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          # use a different tic template type if you do not want to build on all listed platforms
+          # Custom configs
           # [Custom matrix env var]
           - { os: ubuntu-latest, r: "release", pkgdown: "false", latex: "false" }
 
@@ -40,7 +39,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v2.1.1
+      - uses: actions/checkout@v2.3.1
 
       - uses: r-lib/actions/setup-r@master
         with:
@@ -66,7 +65,7 @@ jobs:
 
       - name: "[Cache] Cache R packages"
         if: runner.os != 'Windows'
-        uses: pat-s/always-upload-cache@v2.0.0
+        uses: pat-s/always-upload-cache@v2.1.0
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{steps.date.outputs.date}}
@@ -86,13 +85,11 @@ jobs:
         if: matrix.config.os != 'macOS-latest' || matrix.config.r != 'devel'
         run: Rscript -e "remotes::install_github('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
 
-      # [Custom block] Install v8 for prophet
-      - name: "[Stage] Install V8"
+      - name: "[Custom block] Install V8"
         if: matrix.config.os == 'ubuntu-latest'
         run: sudo apt install libv8-dev
 
-      # [Custom block] Install v8 for prophet
-      - name: "[Stage] Install V8"
+      - name: "[Custom block] Install V8"
         if: matrix.config.os == 'macOS-latest'
         run: brew install v8 tbb
 
@@ -112,7 +109,7 @@ jobs:
 
       - name: "[Stage] Upload R CMD check artifacts"
         if: failure()
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2.1.1
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
