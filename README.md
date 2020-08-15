@@ -9,14 +9,14 @@ data.
 The data is displayed and described at: <https://www.trendecon.org>
 
 The data is stored as CSV in the
-[`daily`](https://github.com/trendecon/data/tree/master/daily) folder.
+[`data`](https://github.com/trendecon/data/tree/master/data) folder.
 
 ### Example
 
 The following code download and displays the main indicator in R:
 
 ``` r
-data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/daily/trendecon_sa.csv")
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv")
 tsbox::ts_plot(data)
 ```
 
