@@ -22,9 +22,18 @@ The data is stored as CSV in the [`data`](https://github.com/trendecon/data/tree
 
 ### Example
 
-The following code download and displays the main indicator in R:
+The following R code download and displays the main indicator for CH, DE, ant AT:
 
-```{r example}
+```{r example, fig.height=3, fig.width=8}
+
 data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_sa.csv")
-tsbox::ts_plot(data)
+tsbox::ts_plot(data, title = "Switzerland")
+
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/de/trendecon_sa.csv")
+tsbox::ts_plot(data, title = "Germany")
+
+data <- read.csv("https://raw.githubusercontent.com/trendecon/data/master/data/at/trendecon_sa.csv")
+tsbox::ts_plot(data, title = "Austria")
+
 ```
+
