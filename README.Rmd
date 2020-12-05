@@ -17,6 +17,7 @@ We construct economic indicators for Switzerland, based on Google Trends data.
 
 The data is displayed and described at: https://www.trendecon.org
 
+
 ### Data
 
 The data is stored as CSV in the [`data`](https://github.com/trendecon/data/tree/master/data) folder:
@@ -32,9 +33,6 @@ The data is stored as CSV in the [`data`](https://github.com/trendecon/data/tree
 | social                   | [social_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_d.csv)             | [social_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_w.csv)             | [social_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_m.csv)             |
 | travel                   | [travel_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_d.csv)             | [travel_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_w.csv)             | [travel_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_m.csv)             |
 | trendecon main indicator | [trendecon_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_d.csv)       | [trendecon_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_w.csv)       | [trendecon_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_m.csv)       |
-
-| trendecon main indicator | [trendecon_d.csv](clothing_sa.csv) | trendecon_w.csv | trendecon_m.csv |
-| clothing, basdf, dasfasd | [clothing_d.csv](clothing_sa.csv)  | clothing_w.csv  | trendecon_m.csv |
 
 
 ### Example
