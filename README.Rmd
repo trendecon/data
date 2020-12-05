@@ -17,7 +17,24 @@ We construct economic indicators for Switzerland, based on Google Trends data.
 
 The data is displayed and described at: https://www.trendecon.org
 
-The data is stored as CSV in the [`data`](https://github.com/trendecon/data/tree/master/data) folder.
+### Data
+
+The data is stored as CSV in the [`data`](https://github.com/trendecon/data/tree/master/data) folder:
+
+| Description              | Daily                                                                                                    | Weekly                                                                                                   | Monthly                                                                                                  |
+|--------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| clothing                 | [clothing_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_d.csv)         | [clothing_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_w.csv)         | [clothing_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/clothing_m.csv)         |
+| food delivery            | [fooddelivery_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_d.csv) | [fooddelivery_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_w.csv) | [fooddelivery_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/fooddelivery_m.csv) |
+| garden                   | [garden_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_d.csv)             | [garden_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_w.csv)             | [garden_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/garden_m.csv)             |
+| home office equipment    | [homeoffice_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_d.csv)     | [homeoffice_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_w.csv)     | [homeoffice_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/homeoffice_m.csv)     |
+| luxury                   | [luxury_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_d.csv)             | [luxury_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_w.csv)             | [luxury_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/luxury_m.csv)             |
+| mobility                 | [mobility_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_d.csv)         | [mobility_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_w.csv)         | [mobility_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/mobility_m.csv)         |
+| social                   | [social_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_d.csv)             | [social_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_w.csv)             | [social_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/social_m.csv)             |
+| travel                   | [travel_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_d.csv)             | [travel_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_w.csv)             | [travel_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/travel_m.csv)             |
+| trendecon main indicator | [trendecon_d.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_d.csv)       | [trendecon_w.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_w.csv)       | [trendecon_m.csv](https://raw.githubusercontent.com/trendecon/data/master/data/ch/trendecon_m.csv)       |
+
+| trendecon main indicator | [trendecon_d.csv](clothing_sa.csv) | trendecon_w.csv | trendecon_m.csv |
+| clothing, basdf, dasfasd | [clothing_d.csv](clothing_sa.csv)  | clothing_w.csv  | trendecon_m.csv |
 
 
 ### Example
