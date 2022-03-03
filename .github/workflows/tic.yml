@@ -22,7 +22,7 @@ jobs:
         config:
           ### Custom configs (specify your own runners here)
           # [Custom matrix env var]
-          - { os: ubuntu-18.04, r: "release" }
+          - { os: ubuntu-latest, r: "release" }
 
     env:
       # otherwise remotes::fun() errors cause the build to fail. Example: Unavailability of binaries
