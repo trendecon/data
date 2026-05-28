@@ -67,7 +67,7 @@ jobs:
         shell: Rscript {0}
         run: |
           install.packages(c("remotes", "prophet", "tibble"))
-          remotes::install_github("trendecon/trendecon@v0.3.0", upgrade = "never")
+          remotes::install_github("trendecon/trendecon@v0.3.1", upgrade = "never")
 
       - name: Update indices for ${{ matrix.geo }}
         if: steps.gate.outputs.run == 'true'
