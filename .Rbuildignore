@@ -1,4 +1,4 @@
 ^\.ccache$
 ^\.github$
-^tic\.R$
+^run\.R$
 ^README\.Rmd$
