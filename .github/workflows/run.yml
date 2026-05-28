@@ -55,19 +55,19 @@ jobs:
           r-version: "4.4"
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      # Install via remotes rather than pak: pak 0.9.5's lockfile_create errors
+      # on the GitHub tag ref ("$ operator is invalid for atomic vectors").
+      # use-public-rspm above points CRAN at Posit Package Manager, so CRAN deps
+      # (gtrendsR -> 1.5.2, prophet, ...) install as binaries; trendecon is
+      # pure-R and builds from source quickly.
+      - name: Install R dependencies
         if: steps.gate.outputs.run == 'true'
-        with:
-          # gtrendsR is pulled in by trendecon; it resolves to the current CRAN
-          # release (1.5.2, the known-good version). We avoid the pak
-          # "cran::pkg@version" exact-pin syntax, which currently errors in
-          # lockfile_create ("$ operator is invalid for atomic vectors").
-          packages: |
-            github::trendecon/trendecon@v0.3.0
-            cran::gtrendsR
-            cran::prophet
-            cran::tibble
-          cache-version: 1
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        shell: Rscript {0}
+        run: |
+          install.packages(c("remotes", "prophet", "tibble"))
+          remotes::install_github("trendecon/trendecon@v0.3.0", upgrade = "never")
 
       - name: Update indices for ${{ matrix.geo }}
         if: steps.gate.outputs.run == 'true'
