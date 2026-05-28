@@ -23,6 +23,10 @@ backfill_from <- if (nzchar(backfill_from)) backfill_from else NULL
 # raw/ and data/ live at the repository root
 options(path_trendecon = ".")
 
+# Pace queries to stay under Google's rate limiter. A backfill fires many more
+# queries in a burst, so pace it more gently than a normal incremental run.
+options(trendecon.query_pause = if (is.null(backfill_from)) 1 else 3)
+
 suppressPackageStartupMessages({
   library(trendecon)
   library(prophet)
