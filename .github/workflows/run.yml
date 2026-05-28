@@ -58,9 +58,13 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         if: steps.gate.outputs.run == 'true'
         with:
+          # gtrendsR is pulled in by trendecon; it resolves to the current CRAN
+          # release (1.5.2, the known-good version). We avoid the pak
+          # "cran::pkg@version" exact-pin syntax, which currently errors in
+          # lockfile_create ("$ operator is invalid for atomic vectors").
           packages: |
             github::trendecon/trendecon@v0.3.0
-            cran::gtrendsR@1.5.2
+            cran::gtrendsR
             cran::prophet
             cran::tibble
           cache-version: 1
