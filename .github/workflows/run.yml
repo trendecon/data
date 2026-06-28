@@ -67,7 +67,23 @@ jobs:
         shell: Rscript {0}
         run: |
           install.packages(c("remotes", "prophet", "tibble"))
-          remotes::install_github("trendecon/trendecon@v0.3.2", upgrade = "never")
+          # The three matrix jobs hit the GitHub API in parallel to resolve the
+          # trendecon tag; transient "cannot open URL" errors there have failed
+          # individual countries. Retry with backoff so a flake no longer skips
+          # a country's daily update.
+          ok <- FALSE
+          for (i in 1:5) {
+            ok <- tryCatch({
+              remotes::install_github("trendecon/trendecon@v0.3.2", upgrade = "never")
+              TRUE
+            }, error = function(e) {
+              message("install attempt ", i, " failed: ", conditionMessage(e))
+              FALSE
+            })
+            if (ok) break
+            Sys.sleep(15 * i)
+          }
+          if (!ok) stop("Failed to install trendecon after 5 attempts")
 
       - name: Update indices for ${{ matrix.geo }}
         if: steps.gate.outputs.run == 'true'
